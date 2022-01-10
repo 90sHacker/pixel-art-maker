@@ -9,6 +9,7 @@ gridForm.addEventListener('submit', (e) => {
     const gridHeight = gridForm[0].value;
     const gridWidth = gridForm[1].value;
     const gridColor = colorForm.value;
+// Call makeGrid()
     makeGrid(gridHeight, gridWidth, gridColor);
 });
 
@@ -18,6 +19,7 @@ function makeGrid(height, width, color) {
     const canvas = document.querySelector('#pixelCanvas');
 // Clear the canvas
     canvas.innerHTML = '';
+// Use a nested loop to create and append rows and data cells
     for (let i = 0; i < height; i++) {
         let tr = document.createElement('tr');
         let td = [];
@@ -27,6 +29,7 @@ function makeGrid(height, width, color) {
         }
         canvas.appendChild(tr);
     }
+// Get all data cells as a live HTMLCollection
     const trow = canvas.getElementsByTagName('td');
     for (let x = 0; x < trow.length; x++){
         trow[x].addEventListener('click', () => {
